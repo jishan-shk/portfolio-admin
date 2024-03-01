@@ -214,5 +214,5 @@
     <script>
         var SAVE_API = '{{route("save_personal_details")}}';
     </script>
-    <script src="{{ asset('assets/js/about_me.js?ver=' . SCRIPT_VERSION) }}"></script>
+    <script src="{{ '/assets/js/about_me.js?ver=' . SCRIPT_VERSION }}"></script>
 @endsection

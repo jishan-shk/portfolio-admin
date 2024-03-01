@@ -84,6 +84,6 @@
         var SaveSkillApi = '{{route('save_skills')}}';
         var path = '{{asset(SKILL_LOGO_PATH)}}';
     </script>
-    <script src="{{ asset('assets/js/skills_master.js?ver=' . SCRIPT_VERSION) }}"></script>
+    <script src="{{ '/assets/js/skills_master.js?ver=' . SCRIPT_VERSION }}"></script>
 
 @endsection
