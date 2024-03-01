@@ -198,5 +198,5 @@ $(function (){
 
 function append_logo_file(){
     $('.logo_div').html(`<label class="form-label"><strong>Logo</strong> <sup class="text-danger red">*</sup></label>
-                                <input type="file" id="logo" name="logo" class="mt-3" value="" data-parsley-required="true" data-allowed-file-extensions='["jpg", "png","jpeg","gif"]' data-height="150" >`)
+        <input type="file" id="logo" name="logo" class="mt-3" value="" data-parsley-required="true" data-allowed-file-extensions='["jpg", "png","jpeg","gif"]' data-height="150" >`)
 }
