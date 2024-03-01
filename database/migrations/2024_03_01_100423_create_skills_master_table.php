@@ -11,16 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('skills_master', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('skills_category_id')->index();
             $table->string('name')->index();
-            $table->date('dob');
-            $table->string('mobile_number')->nullable();
-            $table->string('email')->nullable();
-            $table->string('username')->index();
-            $table->longText('password');
+            $table->string('logo')->index();
+            $table->unsignedInteger('created_by')->index()->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('skills_master');
     }
 };
