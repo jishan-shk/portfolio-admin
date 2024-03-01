@@ -79,7 +79,7 @@
         </div>
     </div>
     <script>
-        var SaveEducationApi = '{{route('save_education')}}';
+        var SaveEducationApi = '/save-education';
     </script>
-    <script src="{{ asset('assets/js/education_details.js?ver=' . SCRIPT_VERSION) }}"></script>
+    <script src="{{ '/assets/js/education_details.js?ver=' . SCRIPT_VERSION }}"></script>
 @endsection

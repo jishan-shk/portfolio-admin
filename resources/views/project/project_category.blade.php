@@ -58,8 +58,8 @@
         </div>
     </div>
     <script>
-        var ProjectCategoryListApi = '{{route('project_category_list')}}';
-        var SaveProjectCategoryApi = '{{route('save_project_category')}}';
+        var ProjectCategoryListApi = '{{ '/project-category-list' }}';
+        var SaveProjectCategoryApi = '{{ '/save-project-category' }}';
     </script>
-    <script src="{{ asset('assets/js/project_category.js?ver=' . SCRIPT_VERSION) }}"></script>
+    <script src="{{ '/assets/js/project_category.js?ver=' . SCRIPT_VERSION }}"></script>
 @endsection

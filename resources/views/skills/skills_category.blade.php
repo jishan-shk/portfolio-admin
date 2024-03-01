@@ -58,8 +58,8 @@
         </div>
     </div>
     <script>
-        var SkillCategoryListApi = '{{route('skills_category_list')}}';
-        var SaveSkillCategoryApi = '{{route('save_skill_category')}}';
+        var SkillCategoryListApi = '{{ '/skills-category-list' }}';
+        var SaveSkillCategoryApi = '{{ '/save-skills-category' }}';
     </script>
     <script src="{{ '/assets/js/skill_category.js?ver=' . SCRIPT_VERSION }}"></script>
 @endsection

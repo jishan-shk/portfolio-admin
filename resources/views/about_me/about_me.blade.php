@@ -94,7 +94,7 @@
                                 <textarea name="about_me" id="about_me" cols="30" rows="5" class="form-control bg-transparent" data-parsley-required="true">{{ @$personal_info['about_me']}}</textarea>
                             </div>
                             <div class="col-md-6 mb-3 mt-2">
-                                <label class="form-label"><strong>Resume</strong><sup class="text-danger red">*</sup>@if(!empty($personal_info['resume'])) <a href="{{asset(UPLOAD_PATH.'/'.$personal_info['resume'])}}"><i class="fa fa-eye"></i></a>@endif</label>
+                                <label class="form-label"><strong>Resume</strong><sup class="text-danger red">*</sup>@if(!empty($personal_info['resume'])) <a href="{{asset(UPLOAD_PATH.'/'.$personal_info['resume'])}}" target="_blank"><i class="fa fa-eye"></i></a>@endif</label>
                                 <input type="file" id="resume" name="resume" class="mt-3 dropify" data-allowed-file-extensions='["jpg", "png","jpeg","gif","pdf"]' data-height="100">
                             </div>
                             <h4 class="mb-3 mt-2">Links : </h4>
@@ -212,7 +212,7 @@
         </div>
     </div>
     <script>
-        var SAVE_API = '{{route("save_personal_details")}}';
+        var SAVE_API = '/save-personal-details';
     </script>
     <script src="{{ '/assets/js/about_me.js?ver=' . SCRIPT_VERSION }}"></script>
 @endsection
