@@ -75,9 +75,9 @@
                     <div class="row align-items-center">
                         <div class="col-xl-6">
                             <div class="card-bx bg-blue">
-                                <img class="pattern-img" src="{{ secure_asset('plugins/images/pattern/pattern6.png') }}" alt="">
+                                <img class="pattern-img" src="{{ '/plugins/images/pattern/pattern6.png' }}" alt="">
                                 <div class="card-info text-white">
-                                    <img src="{{ secure_asset('plugins/images/pattern/circle.png') }}" class="mb-4" alt="">
+                                    <img src="{{ '/plugins/images/pattern/circle.png' }}" class="mb-4" alt="">
                                     <h2 class="text-white card-balance">$824,571.93</h2>
                                     <p class="fs-16">Wallet Balance</p>
                                     <span>+0,8% than last week</span>
@@ -146,7 +146,7 @@
                 </div>
                 <div class="card-body">
                     <div class="user-bx">
-                        <img src="{{ secure_asset('plugins/images/profile/small/pic1.jpg') }}" alt="">
+                        <img src="{{ '/plugins/images/profile/small/pic1.jpg' }}" alt="">
                         <div>
                             <h6 class="user-name">Samuel</h6>
                             <span class="meta">@sam224</span>
@@ -155,12 +155,12 @@
                     </div>
                     <h4 class="mt-3 mb-3">Recent Friend<a href="javascript:void(0);" class="fs-16 float-end text-secondary font-w600">See More</a></h4>
                     <ul class="user-list">
-                        <li><img src="{{ secure_asset('plugins/images/avatar/1.jpg') }}" alt=""></li>
-                        <li><img src="{{ secure_asset('plugins/images/avatar/2.jpg') }}" alt=""></li>
-                        <li><img src="{{ secure_asset('plugins/images/avatar/3.jpg') }}" alt=""></li>
-                        <li><img src="{{ secure_asset('plugins/images/avatar/4.jpg') }}" alt=""></li>
-                        <li><img src="{{ secure_asset('plugins/images/avatar/5.jpg') }}" alt=""></li>
-                        <li><img src="{{ secure_asset('plugins/images/avatar/6.jpg') }}" alt=""></li>
+                        <li><img src="{{ '/plugins/images/avatar/1.jpg' }}" alt=""></li>
+                        <li><img src="{{ '/plugins/images/avatar/2.jpg' }}" alt=""></li>
+                        <li><img src="{{ '/plugins/images/avatar/3.jpg' }}" alt=""></li>
+                        <li><img src="{{ '/plugins/images/avatar/4.jpg' }}" alt=""></li>
+                        <li><img src="{{ '/plugins/images/avatar/5.jpg' }}" alt=""></li>
+                        <li><img src="{{ '/plugins/images/avatar/6.jpg' }}" alt=""></li>
                     </ul>
                     <h4 class="mt-3 mb-0">Insert Amount</h4>
                     <div class="format-slider">
