@@ -1,0 +1,550 @@
+:root {
+    --dark-theme: #2b3054;
+}
+
+.was-validated .form-control:valid,
+.form-control.is-valid,
+input.form-control.parsley-success,
+textarea.form-control.parsley-success {
+    border-color: #0ba360;
+    padding-right: calc(1.5em + 0.75rem);
+    /*background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2300cccc ' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");*/
+    background-repeat: no-repeat;
+    background-position: center right calc(0.375em + 0.1875rem);
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.was-validated .form-control:valid:focus,
+.form-control.is-valid:focus,
+input.form-control.parsley-success:focus,
+textarea.form-control.parsley-success:focus {
+    border-color: #0ba360;
+    box-shadow: 0 0 0 0.2rem rgba(59, 176, 1, 0.25);
+}
+
+.was-validated .form-control:valid~.valid-feedback,
+.was-validated .form-control:valid~.valid-tooltip {
+    display: block;
+}
+
+.form-control.is-valid~.valid-feedback,
+input.form-control.parsley-success~.valid-feedback,
+textarea.form-control.parsley-success~.valid-feedback,
+.form-control.is-valid~.valid-tooltip,
+input.form-control.parsley-success~.valid-tooltip,
+textarea.form-control.parsley-success~.valid-tooltip {
+    display: block;
+}
+
+.was-validated textarea.form-control:valid {
+    padding-right: calc(1.5em + 0.75rem);
+    background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem);
+}
+
+textarea.form-control.is-valid,
+textarea.form-control.parsley-success {
+    padding-right: calc(1.5em + 0.75rem);
+    background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem);
+}
+
+.was-validated .form-select:valid,
+.form-select.is-valid,
+input.form-select.parsley-success,
+textarea.form-select.parsley-success {
+    border-color: #0ba360;
+    padding-right: calc((1em + 0.75rem) * 3 / 4 + 1.75rem);
+    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%233b4863' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px, url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2300cccc ' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e") #fff no-repeat center right 1.75rem/calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.was-validated .form-select:valid:focus,
+.form-select.is-valid:focus,
+input.form-select.parsley-success:focus,
+textarea.form-select.parsley-success:focus {
+    border-color: #0ba360;
+    box-shadow: 0 0 0 0.2rem rgba(59, 176, 1, 0.25);
+}
+
+.was-validated .form-select:valid~.valid-feedback,
+.was-validated .form-select:valid~.valid-tooltip {
+    display: block;
+}
+
+.form-select.is-valid~.valid-feedback,
+input.form-select.parsley-success~.valid-feedback,
+textarea.form-select.parsley-success~.valid-feedback,
+.form-select.is-valid~.valid-tooltip,
+input.form-select.parsley-success~.valid-tooltip,
+textarea.form-select.parsley-success~.valid-tooltip {
+    display: block;
+}
+
+.was-validated .form-control-file:valid~.valid-feedback,
+.was-validated .form-control-file:valid~.valid-tooltip {
+    display: block;
+}
+
+.form-control-file.is-valid~.valid-feedback,
+input.form-control-file.parsley-success~.valid-feedback,
+textarea.form-control-file.parsley-success~.valid-feedback,
+.form-control-file.is-valid~.valid-tooltip,
+input.form-control-file.parsley-success~.valid-tooltip,
+textarea.form-control-file.parsley-success~.valid-tooltip {
+    display: block;
+}
+
+.was-validated .form-check-input:valid~.form-check-label,
+.form-check-input.is-valid~.form-check-label,
+input.form-check-input.parsley-success~.form-check-label,
+textarea.form-check-input.parsley-success~.form-check-label {
+    color: #0ba360;
+}
+
+.was-validated .form-check-input:valid~.valid-feedback,
+.was-validated .form-check-input:valid~.valid-tooltip {
+    display: block;
+}
+
+.form-check-input.is-valid~.valid-feedback,
+input.form-check-input.parsley-success~.valid-feedback,
+textarea.form-check-input.parsley-success~.valid-feedback,
+.form-check-input.is-valid~.valid-tooltip,
+input.form-check-input.parsley-success~.valid-tooltip,
+textarea.form-check-input.parsley-success~.valid-tooltip {
+    display: block;
+}
+
+.was-validated .custom-control-input:valid~.custom-control-label,
+.custom-control-input.is-valid~.custom-control-label,
+input.custom-control-input.parsley-success~.custom-control-label,
+textarea.custom-control-input.parsley-success~.custom-control-label {
+    color: #0ba360;
+}
+
+.was-validated .custom-control-input:valid~.custom-control-label::before,
+.custom-control-input.is-valid~.custom-control-label::before,
+input.custom-control-input.parsley-success~.custom-control-label::before,
+textarea.custom-control-input.parsley-success~.custom-control-label::before {
+    border-color: #0ba360;
+}
+
+.was-validated .custom-control-input:valid~.valid-feedback,
+.was-validated .custom-control-input:valid~.valid-tooltip {
+    display: block;
+}
+
+.custom-control-input.is-valid~.valid-feedback,
+input.custom-control-input.parsley-success~.valid-feedback,
+textarea.custom-control-input.parsley-success~.valid-feedback,
+.custom-control-input.is-valid~.valid-tooltip,
+input.custom-control-input.parsley-success~.valid-tooltip,
+textarea.custom-control-input.parsley-success~.valid-tooltip {
+    display: block;
+}
+
+.was-validated .custom-control-input:valid:checked~.custom-control-label::before,
+.custom-control-input.is-valid:checked~.custom-control-label::before,
+input.custom-control-input.parsley-success:checked~.custom-control-label::before,
+textarea.custom-control-input.parsley-success:checked~.custom-control-label::before {
+    border-color: #4ce301;
+    background-color: #4ce301;
+}
+
+.was-validated .custom-control-input:valid:focus~.custom-control-label::before,
+.custom-control-input.is-valid:focus~.custom-control-label::before,
+input.custom-control-input.parsley-success:focus~.custom-control-label::before,
+textarea.custom-control-input.parsley-success:focus~.custom-control-label::before {
+    box-shadow: 0 0 0 0.2rem rgba(59, 176, 1, 0.25);
+}
+
+.was-validated .custom-control-input:valid:focus:not(:checked)~.custom-control-label::before,
+.custom-control-input.is-valid:focus:not(:checked)~.custom-control-label::before,
+input.custom-control-input.parsley-success:focus:not(:checked)~.custom-control-label::before,
+textarea.custom-control-input.parsley-success:focus:not(:checked)~.custom-control-label::before,
+.was-validated .custom-file-input:valid~.custom-file-label,
+.custom-file-input.is-valid~.custom-file-label,
+input.custom-file-input.parsley-success~.custom-file-label,
+textarea.custom-file-input.parsley-success~.custom-file-label {
+    border-color: #0ba360;
+}
+
+.was-validated .custom-file-input:valid~.valid-feedback,
+.was-validated .custom-file-input:valid~.valid-tooltip {
+    display: block;
+}
+
+.custom-file-input.is-valid~.valid-feedback,
+input.custom-file-input.parsley-success~.valid-feedback,
+textarea.custom-file-input.parsley-success~.valid-feedback,
+.custom-file-input.is-valid~.valid-tooltip,
+input.custom-file-input.parsley-success~.valid-tooltip,
+textarea.custom-file-input.parsley-success~.valid-tooltip {
+    display: block;
+}
+
+.was-validated .custom-file-input:valid:focus~.custom-file-label,
+.custom-file-input.is-valid:focus~.custom-file-label,
+input.custom-file-input.parsley-success:focus~.custom-file-label,
+textarea.custom-file-input.parsley-success:focus~.custom-file-label {
+    border-color: #0ba360;
+    box-shadow: 0 0 0 0.2rem rgba(59, 176, 1, 0.25);
+}
+
+.was-validated .form-control:invalid,
+.form-control.is-invalid,
+input.form-control.parsley-error,
+textarea.form-control.parsley-error {
+    border-color: #f53c5b;
+    padding-right: calc(1.5em + 0.75rem);
+    /*background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23dc3545' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23dc3545' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E");*/
+    background-repeat: no-repeat;
+    background-position: center right calc(0.375em + 0.1875rem);
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.was-validated .form-control:invalid:focus,
+.form-control.is-invalid:focus,
+input.form-control.parsley-error:focus,
+textarea.form-control.parsley-error:focus {
+    border-color: #f53c5b;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.was-validated .form-control:invalid~.invalid-feedback,
+.was-validated .form-control:invalid~.invalid-tooltip {
+    display: block;
+}
+
+.form-control.is-invalid~.invalid-feedback,
+input.form-control.parsley-error~.invalid-feedback,
+textarea.form-control.parsley-error~.invalid-feedback,
+.form-control.is-invalid~.invalid-tooltip,
+input.form-control.parsley-error~.invalid-tooltip,
+textarea.form-control.parsley-error~.invalid-tooltip {
+    display: block;
+}
+
+.was-validated textarea.form-control:invalid {
+    padding-right: calc(1.5em + 0.75rem);
+    background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem);
+}
+
+textarea.form-control.is-invalid,
+textarea.form-control.parsley-error {
+    padding-right: calc(1.5em + 0.75rem);
+    background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem);
+}
+
+.was-validated .form-select:invalid,
+.form-select.is-invalid,
+input.form-select.parsley-error,
+textarea.form-select.parsley-error {
+    border-color: #f53c5b;
+    padding-right: calc((1em + 0.75rem) * 3 / 4 + 1.75rem);
+    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%233b4863' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px, url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23dc3545' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23dc3545' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E") #fff no-repeat center right 1.75rem/calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.was-validated .form-select:invalid:focus,
+.form-select.is-invalid:focus,
+input.form-select.parsley-error:focus,
+textarea.form-select.parsley-error:focus {
+    border-color: #f53c5b;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.was-validated .form-select:invalid~.invalid-feedback,
+.was-validated .form-select:invalid~.invalid-tooltip {
+    display: block;
+}
+
+.form-select.is-invalid~.invalid-feedback,
+input.form-select.parsley-error~.invalid-feedback,
+textarea.form-select.parsley-error~.invalid-feedback,
+.form-select.is-invalid~.invalid-tooltip,
+input.form-select.parsley-error~.invalid-tooltip,
+textarea.form-select.parsley-error~.invalid-tooltip {
+    display: block;
+}
+
+.was-validated .form-control-file:invalid~.invalid-feedback,
+.was-validated .form-control-file:invalid~.invalid-tooltip {
+    display: block;
+}
+
+.form-control-file.is-invalid~.invalid-feedback,
+input.form-control-file.parsley-error~.invalid-feedback,
+textarea.form-control-file.parsley-error~.invalid-feedback,
+.form-control-file.is-invalid~.invalid-tooltip,
+input.form-control-file.parsley-error~.invalid-tooltip,
+textarea.form-control-file.parsley-error~.invalid-tooltip {
+    display: block;
+}
+
+.was-validated .form-check-input:invalid~.form-check-label,
+.form-check-input.is-invalid~.form-check-label,
+input.form-check-input.parsley-error~.form-check-label,
+textarea.form-check-input.parsley-error~.form-check-label {
+    color: #f53c5b;
+}
+
+.was-validated .form-check-input:invalid~.invalid-feedback,
+.was-validated .form-check-input:invalid~.invalid-tooltip {
+    display: block;
+}
+
+.form-check-input.is-invalid~.invalid-feedback,
+input.form-check-input.parsley-error~.invalid-feedback,
+textarea.form-check-input.parsley-error~.invalid-feedback,
+.form-check-input.is-invalid~.invalid-tooltip,
+input.form-check-input.parsley-error~.invalid-tooltip,
+textarea.form-check-input.parsley-error~.invalid-tooltip {
+    display: block;
+}
+
+.was-validated .custom-control-input:invalid~.custom-control-label,
+.custom-control-input.is-invalid~.custom-control-label,
+input.custom-control-input.parsley-error~.custom-control-label,
+textarea.custom-control-input.parsley-error~.custom-control-label {
+    color: #f53c5b;
+}
+
+.was-validated .custom-control-input:invalid~.custom-control-label::before,
+.custom-control-input.is-invalid~.custom-control-label::before,
+input.custom-control-input.parsley-error~.custom-control-label::before,
+textarea.custom-control-input.parsley-error~.custom-control-label::before {
+    border-color: #f53c5b;
+}
+
+.was-validated .custom-control-input:invalid~.invalid-feedback,
+.was-validated .custom-control-input:invalid~.invalid-tooltip {
+    display: block;
+}
+
+.custom-control-input.is-invalid~.invalid-feedback,
+input.custom-control-input.parsley-error~.invalid-feedback,
+textarea.custom-control-input.parsley-error~.invalid-feedback,
+.custom-control-input.is-invalid~.invalid-tooltip,
+input.custom-control-input.parsley-error~.invalid-tooltip,
+textarea.custom-control-input.parsley-error~.invalid-tooltip {
+    display: block;
+}
+
+.was-validated .custom-control-input:invalid:checked~.custom-control-label::before,
+.custom-control-input.is-invalid:checked~.custom-control-label::before,
+input.custom-control-input.parsley-error:checked~.custom-control-label::before,
+textarea.custom-control-input.parsley-error:checked~.custom-control-label::before {
+    border-color: #e4606d;
+    background-color: #e4606d;
+}
+
+.was-validated .custom-control-input:invalid:focus~.custom-control-label::before,
+.custom-control-input.is-invalid:focus~.custom-control-label::before,
+input.custom-control-input.parsley-error:focus~.custom-control-label::before,
+textarea.custom-control-input.parsley-error:focus~.custom-control-label::before {
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.was-validated .custom-control-input:invalid:focus:not(:checked)~.custom-control-label::before,
+.custom-control-input.is-invalid:focus:not(:checked)~.custom-control-label::before,
+input.custom-control-input.parsley-error:focus:not(:checked)~.custom-control-label::before,
+textarea.custom-control-input.parsley-error:focus:not(:checked)~.custom-control-label::before,
+.was-validated .custom-file-input:invalid~.custom-file-label,
+.custom-file-input.is-invalid~.custom-file-label,
+input.custom-file-input.parsley-error~.custom-file-label,
+textarea.custom-file-input.parsley-error~.custom-file-label {
+    border-color: #f53c5b;
+}
+
+.was-validated .custom-file-input:invalid~.invalid-feedback,
+.was-validated .custom-file-input:invalid~.invalid-tooltip {
+    display: block;
+}
+
+.custom-file-input.is-invalid~.invalid-feedback,
+input.custom-file-input.parsley-error~.invalid-feedback,
+textarea.custom-file-input.parsley-error~.invalid-feedback,
+.custom-file-input.is-invalid~.invalid-tooltip,
+input.custom-file-input.parsley-error~.invalid-tooltip,
+textarea.custom-file-input.parsley-error~.invalid-tooltip {
+    display: block;
+}
+
+.was-validated .custom-file-input:invalid:focus~.custom-file-label,
+.custom-file-input.is-invalid:focus~.custom-file-label,
+input.custom-file-input.parsley-error:focus~.custom-file-label,
+textarea.custom-file-input.parsley-error:focus~.custom-file-label {
+    border-color: #f53c5b;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.wizard>.content>.body input.parsley-error {
+    border-color: #f53c5b;
+}
+
+.wizard>.content>.body input.parsley-error+ul {
+    list-style: none !important;
+}
+.dark-theme .parsley-style-1 .parsley-input.parsley-error .form-control,
+.dark-theme .parsley-style-1 .parsley-checkbox.parsley-error,
+.dark-theme .parsley-style-1 .parsley-select.parsley-error .select2-container--default .select2-selection--single {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .was-validated .form-select:invalid,
+.dark-theme .form-select.is-invalid,
+.dark-theme input.form-select.parsley-error,
+.dark-theme textarea.form-select.parsley-error {
+    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%233b4863' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px, url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fa5c7c' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23fa5c7c' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E") var(--dark-theme) no-repeat center right 1.75rem/calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.dark-theme .was-validated .form-select:valid,
+.dark-theme .form-select.is-valid,
+.dark-theme input.form-select.parsley-success,
+.dark-theme textarea.form-select.parsley-success {
+    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%233b4863' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px, url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2300cccc ' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e") transparent no-repeat center right 1.75rem/calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+
+.rtl textarea.form-control.parsley-success {
+    padding-left: calc(1.5em + 0.75rem);
+    padding-right: inherit;
+}
+
+.rtl .form-select.is-valid {
+    padding-left: calc((1em + 0.75rem) * 3 / 4 + 1.75rem);
+    padding-right: inherit;
+}
+
+.rtl input.form-select.parsley-success {
+    padding-left: calc((1em + 0.75rem) * 3 / 4 + 1.75rem);
+    padding-right: inherit;
+}
+
+.rtl textarea.form-select.parsley-success {
+    padding-left: calc((1em + 0.75rem) * 3 / 4 + 1.75rem);
+    padding-right: inherit;
+}
+
+
+.rtl textarea.form-control.parsley-error {
+    padding-left: calc(1.5em + 0.75rem);
+    padding-right: inherit;
+}
+
+.rtl .form-select.is-invalid {
+    padding-left: calc((1em + 0.75rem) * 3 / 4 + 1.75rem);
+    padding-right: inherit;
+}
+
+.rtl input.form-select.parsley-error {
+    padding-left: calc((1em + 0.75rem) * 3 / 4 + 1.75rem);
+    padding-right: inherit;
+}
+
+.rtl textarea.form-select.parsley-error {
+    padding-left: calc((1em + 0.75rem) * 3 / 4 + 1.75rem);
+    padding-right: inherit;
+}
+
+.rtl .was-validated .form-control:invalid,
+.rtl .rtl .form-control.is-invalid,
+.rtl .rtl input.form-control.parsley-error,
+.rtl .rtl textarea.form-control.parsley-error {
+    padding-right: 0.75rem;
+    padding-left: calc(1.5em + 0.75rem);
+    background-position: center left calc(0.375em + 0.1875rem);
+}
+
+.rtl .was-validated .form-control:valid,
+.rtl .rtl .form-control.is-valid,
+.rtl .rtl input.form-control.parsley-success,
+.rtl .rtl textarea.form-control.parsley-success {
+    padding-right: 0.75rem !important;
+    padding-left: calc(1.5em + 0.75rem) !important;
+    background-position: center left calc(0.375em + 0.1875rem) !important;
+}
+
+
+/* ###### 4.6 Parsley ###### */
+input.parsley-error:focus,
+textarea.parsley-error:focus,
+input.parsley-success:focus,
+textarea.parsley-success:focus {
+    box-shadow: none !important;
+}
+
+.parsley-checkbox.parsley-error {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #f53c5b;
+}
+
+.parsley-checkbox.parsley-success {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #0ba360;
+}
+
+.parsley-errors-list {
+    color: #f53c5b;
+    list-style: none;
+    font-size: 12px;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.parsley-errors-list li {
+    margin: 5px 0 0;
+}
+
+/***** CUSTOM STYLED ERROR MESSAGE *****/
+.parsley-style-1 .parsley-input.parsley-error .form-control {
+    background-color: #fef9f9;
+    border-color: #f53c5b;
+    border-bottom-width: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.parsley-style-1 .parsley-input.parsley-success .form-control {
+    border-color: #0ba360;
+}
+
+.parsley-style-1 .parsley-checkbox.parsley-error {
+    border: 1px solid #f53c5b;
+    background-color: #fef9f9;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.parsley-style-1 .parsley-select.parsley-error .select2-container--default .select2-selection--single {
+    background-color: #fef9f9;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.parsley-style-1 .parsley-errors-list.filled {
+    background-color: #f53c5b;
+    color: #fff;
+    padding: 7px 10px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+.parsley-style-1 .parsley-errors-list.filled li:first-child {
+    margin-top: 0;
+}
+
+.has-success .select2-container--default .select2-selection--single,
+.parsley-select.parsley-success .select2-container--default .select2-selection--single {
+    border-color: #0ba360;
+}
+
+.has-warning .select2-container--default .select2-selection--single {
+    border-color: #e8b210;
+}
+
+.has-danger .select2-container--default .select2-selection--single,
+.parsley-select.parsley-error .select2-container--default .select2-selection--single {
+    border-color: #f53c5b;
+}
+

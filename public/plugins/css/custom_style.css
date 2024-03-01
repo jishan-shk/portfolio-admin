@@ -1,0 +1,71 @@
+.image-picker-preview{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    border-radius: 5%;
+}
+
+.view-document-eye{
+    font-size: 3rem;
+    padding: 10px;
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+
+.btn-social{
+    font-size: 1.25rem!important;
+    height: 3.4375rem!important;
+    display: inline-block!important;
+    padding: 0!important;
+    text-align: center!important;
+    border-radius: 1.75rem!important;
+    color: #fff!important;
+    width: 3.4375rem!important;
+    line-height: 3.375rem!important;
+}
+.facebook{
+    background-color: #3B5998!important;
+}
+.google-plus .google-plus {
+    background-color: #DE4E43!important; }
+.linkedin{
+    background-color: #007BB6!important; }
+.instagram {
+    background-color: #8A5A4E!important; }
+.twitter {
+    background-color: #1EA1F3!important; }
+.youtube {
+    background-color: #CE201F!important; }
+.whatsapp {
+    background-color: #01C854!important; }
+.github {
+    background-color: rgb(30, 48, 80);!important; }
+.btn-social i  a.btn-social{
+    margin: 0 !important;
+}
+
+.overflow_text{
+    max-width: 600px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.overflow_text::-webkit-scrollbar {
+    width: 5px!important;
+    height: 5px!important;
+}
+
+.overflow_text::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: #eee;
+    box-shadow: 0 0 1px 1px #bbb, inset 0 0 7px rgba(0,0,0,0.3)
+}
+.overflow_text::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: linear-gradient(left, #96A6BF, #63738C);
+    box-shadow: inset 0 0 1px 1px #5C6670;
+}
+.overflow_text::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(left, #8391A6, #536175);
+}
