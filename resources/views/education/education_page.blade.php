@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Education</h4>
-                    <a href="{{ route('education_details') }}" class="btn btn-rounded btn-primary add_skill"><span class="btn-icon-start text-info"><i class="fa fa-plus color-info"></i>
+                    <a href="{{ '/education-details' }}" class="btn btn-rounded btn-primary add_skill"><span class="btn-icon-start text-info"><i class="fa fa-plus color-info"></i>
                     </span>Add</a>
                 </div>
                 <div class="card-body">
@@ -35,7 +35,7 @@
         </div>
     </div>
     <script>
-        var EducationListApi = '{{route('education_list')}}';
+        var EducationListApi = '{{ '/education-list' }}';
     </script>
-    <script src="{{ asset('assets/js/education_list.js?ver=' . SCRIPT_VERSION) }}"></script>
+    <script src="{{ '/assets/js/education_list.js?ver=' . SCRIPT_VERSION }}"></script>
 @endsection

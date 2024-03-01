@@ -35,7 +35,7 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('assets/js/error_list.js?ver=' . SCRIPT_VERSION) }}"></script>
+    <script src="{{ '/assets/js/error_list.js?ver=' . SCRIPT_VERSION }}"></script>
     <script>
         $(document).ready(function () {
             $(document).on('click','.delete_log',function (e) {
@@ -58,7 +58,7 @@
                                 _token: "{{ csrf_token() }}",
                                 delete_id: delete_id
                             },
-                            url: "{{ route('delete_error_logs_list') }}",
+                            url: "{{ '/delete-error-logs-list' }}",
                             success: function (response) {
                                 if (response.success == true) {
                                     Swal.fire('Deleted!',response.message,'success').then((result) => {

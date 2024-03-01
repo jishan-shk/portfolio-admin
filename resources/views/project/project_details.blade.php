@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Project Details</h4>
-                    <a href="{{ route('project_details') }}" class="btn btn-rounded btn-primary add_project"><span class="btn-icon-start text-info"><i class="fa fa-plus color-info"></i>
+                    <a href="{{ '/projects/details' }}" class="btn btn-rounded btn-primary add_project"><span class="btn-icon-start text-info"><i class="fa fa-plus color-info"></i>
                     </span>Add</a>
                 </div>
                 <div class="card-body">
@@ -122,7 +122,7 @@
         </div>
     </div>
     <script>
-        var SAVE_API = '{{route("save_project_details")}}';
+        var SAVE_API = '{{ '/save-project-details' }}';
 
         $(document).ready(function (){
             @if(isset($project_info) && !empty($project_info['id']))
@@ -152,5 +152,5 @@
             @endif
         })
     </script>
-    <script src="{{ asset('assets/js/projects_details.js?ver=' . SCRIPT_VERSION) }}"></script>
+    <script src="{{ '/assets/js/projects_details.js?ver=' . SCRIPT_VERSION }}"></script>
 @endsection

@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Projects</h4>
-                    <a href="{{ route('project_details') }}" class="btn btn-rounded btn-primary add_project"><span class="btn-icon-start text-info"><i class="fa fa-plus color-info"></i>
+                    <a href="{{ '/projects/details' }}" class="btn btn-rounded btn-primary add_project"><span class="btn-icon-start text-info"><i class="fa fa-plus color-info"></i>
                     </span>Add</a>
                 </div>
                 <div class="card-body">
@@ -38,7 +38,7 @@
         </div>
     </div>
     <script>
-        var ProjectListApi = '{{route('projects_list')}}';
+        var ProjectListApi = '{{ '/projects-list' }}';
     </script>
-    <script src="{{ asset('assets/js/projects_list.js?ver=' . SCRIPT_VERSION) }}"></script>
+    <script src="{{ '/assets/js/projects_list.js?ver=' . SCRIPT_VERSION }}"></script>
 @endsection
