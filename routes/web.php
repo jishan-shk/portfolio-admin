@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutMeController;
+use App\Http\Controllers\Admin\SkillsController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
