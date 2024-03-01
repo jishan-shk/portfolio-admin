@@ -20,7 +20,7 @@ class AboutMeController extends Controller
 {
     public function about_me() :View
     {
-        $data = [];
+        $data = []; 
 
         $personal_info = PersonalInfoModel::where('id',1)->first();
         if(!empty($personal_info)){
