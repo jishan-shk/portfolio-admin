@@ -1,7 +1,11 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutMeController;
+use App\Http\Controllers\Admin\EducationController;
+use App\Http\Controllers\Admin\ExperienceController;
+use App\Http\Controllers\Admin\ProjectsController;
 use App\Http\Controllers\Admin\SkillsController;
+use App\Http\Controllers\ErrorLogController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
