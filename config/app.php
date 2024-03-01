@@ -185,5 +185,4 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
-    'force_https' => env('APP_FORCE_HTTPS', true),
 ];
