@@ -20,18 +20,18 @@
     <title>Login</title>
 
     <!-- FAVICONS ICON -->
-    <link rel="shortcut icon" type="image/png" href="{{ secure_asset('plugins/images/favicon.png') }}">
-    <link href="{{ secure_asset('plugins/css/style.css') }}" rel="stylesheet">
-    <link href="{{ secure_asset('plugins/parsleyjs/parsley_style.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{{ '/plugins/images/favicon.png' }}">
+    <link href="{{ 'plugins/css/style.css' }}" rel="stylesheet">
+    <link href="{{ '/plugins/parsleyjs/parsley_style.css' }}" rel="stylesheet">
 
     <!--- JQuery min js --->
-    {{-- <script src="{{ secure_asset('plugins/vendor/global/global.min.js') }}"></script>
-    <script src="{{secure_asset('plugins/parsleyjs/parsley.min.js')}}"></script> --}}
+    {{-- <script src="{{ '/plugins/vendor/global/global.min.js') }}"></script>
+    <script src="{{'/plugins/parsleyjs/parsley.min.js')}}"></script> --}}
 
-    <script src="{{ secure_asset('plugins/js/jquery.min.js') }}"></script>
-    <script src="{{ secure_asset('plugins/vendor/global/global.min.js') }}"></script>
-    <script src="{{ secure_asset('plugins/vendor/jquery-nice-select/js/jquery.nice-select.min.js') }}"></script>
-    <script src="{{secure_asset('plugins/parsleyjs/parsley.min.js')}}"></script>
+    <script src="{{ '/plugins/js/jquery.min.js' }}"></script>
+    <script src="{{ '/plugins/vendor/global/global.min.js' }}"></script>
+    <script src="{{ '/plugins/vendor/jquery-nice-select/js/jquery.nice-select.min.js' }}"></script>
+    <script src="{{'/plugins/parsleyjs/parsley.min.js'}}"></script>
 </head>
 
 <body class="vh-100">
@@ -44,7 +44,7 @@
                         <div class="col-xl-12">
                             <div class="auth-form">
                                 <div class="text-center mb-3">
-                                    <img src="{{ secure_asset('plugins/images/logo-full.png') }}" alt="">
+                                    <img src="{{ '/plugins/images/logo-full.png' }}" alt="">
                                 </div>
                                 <h4 class="text-center mb-4">Sign in your account</h4>
                                 <form id="login_form" data-parsley-validate="parsley">
@@ -82,7 +82,7 @@
     Scripts
 ***********************************-->
 <!-- Required vendors -->
-<script src="{{ secure_asset('plugins/js/custom.min.js') }}"></script>
+<script src="{{ '/plugins/js/custom.min.js' }}"></script>
 <script>
     $(document).ready(function () {
 

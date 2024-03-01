@@ -21,32 +21,32 @@
     <!-- FAVICONS ICON -->
     <link rel="shortcut icon" type="image/png" href="images/favicon.png">
 
-    <link href="{{ asset('plugins/vendor/select2/css/select2.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('plugins/vendor/jquery-nice-select/css/nice-select.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('plugins/vendor/nouislider/nouislider.min.css') }}">
+    <link href="{{ '/plugins/vendor/select2/css/select2.min.css' }}" rel="stylesheet">
+    <link href="{{ '/plugins/vendor/jquery-nice-select/css/nice-select.css' }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/plugins/vendor/nouislider/nouislider.min.css' }}">
     <!-- Style css -->
-    <link href="{{ asset('plugins/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('plugins/css/custom_style.css') }}" rel="stylesheet">
-    <link href="{{ asset('plugins/parsleyjs/parsley_style.css') }}" rel="stylesheet">
+    <link href="{{ '/plugins/css/style.css' }}" rel="stylesheet">
+    <link href="{{ '/plugins/css/custom_style.css' }}" rel="stylesheet">
+    <link href="{{ '/plugins/parsleyjs/parsley_style.css' }}" rel="stylesheet">
 
     <!--- Datatable Css -->
-    <link href="{{ asset('plugins/vendor/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet">
+    <link href="{{ '/plugins/vendor/datatables/css/jquery.dataTables.min.css' }}" rel="stylesheet">
 
     <!--- JQuery min js --->
-    <script src="{{asset('plugins/js/jquery.min.js')}}"></script>
-    <script src="{{asset('plugins/parsleyjs/parsley.min.js')}}"></script>
+    <script src="{{'/plugins/js/jquery.min.js'}}"></script>
+    <script src="{{'/plugins/parsleyjs/parsley.min.js'}}"></script>
 
     <!--- Sweetalert --->
-    <script src="{{ asset('plugins/sweetalert2/sweetalert2.all.js') }}"></script>
-    <link href="{{ asset('plugins/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet">
+    <script src="{{ '/plugins/sweetalert2/sweetalert2.all.js' }}"></script>
+    <link href="{{ '/plugins/sweetalert2/sweetalert2.min.css' }}" rel="stylesheet">
 
     <!--- Dropify  css --->
     <link href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css" rel="stylesheet">
 
     <!-- Pick date -->
-    <link href="{{ asset('plugins/vendor/pickadate/themes/default.css') }}" rel="stylesheet">
-    <link href="{{ asset('plugins/vendor/pickadate/themes/default.date.css') }}" rel="stylesheet">
-    <link href="{{ asset('plugins/vendor/dropzone/dist/dropzone.css') }}" rel="stylesheet">
+    <link href="{{ '/plugins/vendor/pickadate/themes/default.css' }}" rel="stylesheet">
+    <link href="{{ '/plugins/vendor/pickadate/themes/default.date.css' }}" rel="stylesheet">
+    <link href="{{ '/plugins/vendor/dropzone/dist/dropzone.css' }}" rel="stylesheet">
 
     <style>
         .dropify-wrapper .dropify-message p {
@@ -138,38 +138,38 @@
     Scripts
 ***********************************-->
 <!-- Required vendors -->
-<script src="{{ asset('plugins/vendor/global/global.min.js') }}"></script>
+<script src="{{ '/plugins/vendor/global/global.min.js' }}"></script>
 
-<script src="{{ asset('plugins/vendor/chart.js/Chart.bundle.min.js') }}"></script>
-<script src="{{ asset('plugins/vendor/jquery-nice-select/js/jquery.nice-select.min.js') }}"></script>
-<script src="{{ asset('plugins/vendor/select2/js/select2.full.min.js') }}"></script>
-<script src="{{ asset('plugins/js/plugins-init/select2-init.js') }}"></script>
+<script src="{{ '/plugins/vendor/chart.js/Chart.bundle.min.js' }}"></script>
+<script src="{{ '/plugins/vendor/jquery-nice-select/js/jquery.nice-select.min.js' }}"></script>
+<script src="{{ '/plugins/vendor/select2/js/select2.full.min.js' }}"></script>
+<script src="{{ '/plugins/js/plugins-init/select2-init.js' }}"></script>
 
 <!-- Apex Chart -->
-<script src="{{ asset('plugins/vendor/apexchart/apexchart.js') }}"></script>
-<script src="{{ asset('plugins/vendor/nouislider/nouislider.min.js') }}"></script>
-<script src="{{ asset('plugins/vendor/wnumb/wNumb.js') }}"></script>
+<script src="{{ '/plugins/vendor/apexchart/apexchart.js' }}"></script>
+<script src="{{ '/plugins/vendor/nouislider/nouislider.min.js' }}"></script>
+<script src="{{ '/plugins/vendor/wnumb/wNumb.js' }}"></script>
 
 <!-- Datatable JS -->
-<script src="{{ asset('plugins/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('plugins/js/plugins-init/datatables.init.js') }}"></script>
+<script src="{{ '/plugins/vendor/datatables/js/jquery.dataTables.min.js' }}"></script>
+<script src="{{ '/plugins/js/plugins-init/datatables.init.js' }}"></script>
 
 <!-- Dashboard 1 -->
-<script src="{{ asset('plugins/js/dashboard/dashboard-1.js') }}"></script>
+<script src="{{ '/plugins/js/dashboard/dashboard-1.js' }}"></script>
 
-<script src="{{asset('plugins/js/dropify.min.js')}}"></script>
+<script src="{{'/plugins/js/dropify.min.js'}}"></script>
 
 <!-- Pickdate -->
-<script src="{{asset('plugins/vendor/pickadate/picker.js')}}"></script>
-<script src="{{asset('plugins/vendor/pickadate/picker.time.js')}}"></script>
-<script src="{{asset('plugins/vendor/pickadate/picker.date.js')}}"></script>
-<script src="{{asset('plugins/js/plugins-init/pickadate-init.js')}}"></script>
+<script src="{{'/plugins/vendor/pickadate/picker.js'}}"></script>
+<script src="{{'/plugins/vendor/pickadate/picker.time.js'}}"></script>
+<script src="{{'/plugins/vendor/pickadate/picker.date.js'}}"></script>
+<script src="{{'/plugins/js/plugins-init/pickadate-init.js'}}"></script>
 
-<script src="{{ asset('plugins/vendor/dropzone/dist/dropzone.js') }}"></script>
-<script src="{{ asset('plugins/js/custom.min.js') }}"></script>
-<script src="{{ asset('plugins/js/dlabnav-init.js') }}"></script>
-<script src="{{ asset('plugins/js/demo.js') }}"></script>
-<script src="{{ asset('plugins/js/styleSwitcher.js') }}"></script>
+<script src="{{ '/plugins/vendor/dropzone/dist/dropzone.js' }}"></script>
+<script src="{{ '/plugins/js/custom.min.js' }}"></script>
+<script src="{{ '/plugins/js/dlabnav-init.js' }}"></script>
+<script src="{{ '/plugins/js/demo.js' }}"></script>
+<script src="{{ '/plugins/js/styleSwitcher.js' }}"></script>
 <script>
     $(document).ready(function (){
         $('.select2').select2({
