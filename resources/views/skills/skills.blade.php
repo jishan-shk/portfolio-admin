@@ -80,9 +80,9 @@
         </div>
     </div>
     <script>
-        var SkillListApi = '{{route('skills_list')}}';
-        var SaveSkillApi = '{{route('save_skills')}}';
-        var path = '{{asset(SKILL_LOGO_PATH)}}';
+        var SkillListApi = '{{ '/skills-list' }}';
+        var SaveSkillApi = '{{ '/save-skills' }}';
+        var path = '{{ asset(SKILL_LOGO_PATH) }}';
     </script>
     <script src="{{ '/assets/js/skills_master.js?ver=' . SCRIPT_VERSION }}"></script>
 
