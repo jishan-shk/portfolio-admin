@@ -67,7 +67,7 @@ return [
 
         'daily' => [
             'driver' => 'daily',
-            'path' => storage_path('logs/laravel.log'),
+            'path' => '/tmp/laravel-'.\Carbon\Carbon::now()->format('Y-m-d').'.log', // Use daily log files in /tmp directory,
             'level' => env('LOG_LEVEL', 'debug'),
             'days' => 14,
             'replace_placeholders' => true,
