@@ -20,11 +20,12 @@
                                     'is_required' => true,
                                 ])
                             </div>
+
                             <div class="col-md-6 mb-3">
                                 <label class="form-label"><strong>Company Logo</strong><sup class="text-danger red">*</sup></label>
                                 <div class="main-img-user profile-user" style="display: inline-block;position: relative;width: 36px;height: 36px;border-radius: 100%;text-align: center;width: 120px;height: 120px;margin-bottom: 20px;">
                                     @if(isset($experience_data['company_logo']) && !empty($experience_data['company_logo']))
-                                        <img alt="" id="company_img" src="{{asset(COMPANY_LOGO_PATH).'/'.$experience_data['company_logo'] }}" class="image-picker-preview">
+                                        <img alt="" id="company_img" src="{{ \App\Helpers\Helpers::firebase_img_url($experience_data['company_logo']) }}" class="image-picker-preview">
                                     @else
                                         <img alt="" id="company_img" class="image-picker-preview">
                                     @endif
@@ -75,7 +76,7 @@
                             <ul>
                                 @foreach($document as $file)
                                     <li>
-                                        <a href="{{ asset(COMPANY_DOCUMENT_PATH.'/'.$file['file_name']) }}" target="_blank" class="view-document-eye"><i class="fa fa-eye"></i></a>
+                                        <a href="{{ \App\Helpers\Helpers::firebase_img_url($file['file_name']) }}" target="_blank" class="view-document-eye"><i class="fa fa-eye"></i></a>
                                         <button class="btn btn-sm btn-danger delete_document" style="margin-top: -30px;" data-document-id="{{$file['document_id']}}">Delete</button>
                                     </li>
                                 @endforeach

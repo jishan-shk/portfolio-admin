@@ -57,16 +57,22 @@ class ExperienceController extends Controller
                 return DataTables::of($data['result'])
                     ->addIndexColumn()
                     ->addColumn('company_logo', function ($row) {
-                        return !empty($row->company_logo) ? '<img src="'.(asset(COMPANY_LOGO_PATH).'/'.$row->company_logo).'" width="70">' : '';
+                        $logo = '';
+                        if(!empty($row->company_logo)) {
+                            $path = Helpers::firebase_img_url($row->company_logo);
+                            $logo = '<img src="' . ($path) . '" width="70">';
+                        }
+
+                        return $logo;
                     })
                     ->addColumn('documents', function ($row) {
                         $documents = ExperienceDocumentModel::where('experience_id',$row->id)->exists();
-                        return $documents ? '<button class="btn btn-info view_document" data-experience-doc-route="'.route('getCompanyDocument',[$row->id]).'"><i class="fa fa-eye"></i></button>' : '-';
+                        return $documents ? '<button class="btn btn-info view_document" data-experience-doc-route="/get-company-document/'.$row->id.'"><i class="fa fa-eye"></i></button>' : '-';
                     })
                     ->addColumn('action', function ($row) {
                         return '<div class="d-flex">
-                                        <a href="'.route('experience_details',[$row->id]).'" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
-                                        <a href="'.route('delete_experience',[$row->id]).'" class="btn btn-danger shadow btn-xs sharp delete_experience" data-experience-id="'.$row->id.'"><i class="fa fa-trash"></i></a>
+                                        <a href="/experience-details/'.$row->id.'" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                        <a href="/experience/delete-experience/'.$row->id.'" class="btn btn-danger shadow btn-xs sharp delete_experience" data-experience-id="'.$row->id.'"><i class="fa fa-trash"></i></a>
                                     </div>';
                     })
                     ->rawColumns(['company_logo','documents','action','created_by'])
@@ -116,21 +122,6 @@ class ExperienceController extends Controller
                 $status_code = 400;
                 $errors_fields = $validator->errors();
             }else{
-                if (!Storage::exists('uploads')) {
-                    // Create the directory
-                    Storage::makeDirectory('uploads');
-                }
-
-                if (!File::exists(public_path(COMPANY_LOGO_PATH))) {
-                    // Create the directory
-                    File::makeDirectory(public_path(COMPANY_LOGO_PATH), $mode = 0755, true, true);
-                }
-
-                if (!File::exists(public_path(COMPANY_DOCUMENT_PATH))) {
-                    // Create the directory
-                    File::makeDirectory(public_path(COMPANY_DOCUMENT_PATH), $mode = 0755, true, true);
-                }
-
                 $user_id = Auth::id();
 
                 $endMonth = date('M Y',strtotime($post['end_date'])) ?? '';
@@ -150,9 +141,8 @@ class ExperienceController extends Controller
                 ];
 
                 if ($request->hasFile('company_logo')) {
-                    $image_name =  strtolower($post['company_name']).'_'. time() . '.' . $request->company_logo->extension();
-                    $request->company_logo->move(public_path(COMPANY_LOGO_PATH), $image_name);
-                    $data['company_logo'] = $image_name;
+                    $image = $request->file('company_logo');
+                    $data['company_logo'] = Helpers::save_img_firebase('Logo',$image,$post['company_name']);
                 }
 
                 $message = "Experience Saved Sucessfully";
@@ -170,8 +160,7 @@ class ExperienceController extends Controller
                     if ($request->hasFile('document')) {
                         foreach ($request->file('document') as $document){
                             $original_name = $document->getClientOriginalName();
-                            $document_name =  strtolower($original_name).'_'. time() . '.' . $document->extension();
-                            $document->move(public_path(COMPANY_DOCUMENT_PATH), $document_name);
+                            $document_name = Helpers::save_img_firebase('Logo',$document,$original_name);
 
                             ExperienceDocumentModel::create(['experience_id' => $experience->id ,'file_name' => $document_name,'created_by' => $user_id]);
                         }
@@ -201,9 +190,7 @@ class ExperienceController extends Controller
         Log::info('ExperienceController::delete_experience() start');
         $Delete_data = ExperienceModel::find($experience_id);
 
-        if(file_exists(public_path(COMPANY_LOGO_PATH.'/'.$Delete_data->company_logo))){
-            unlink(public_path(COMPANY_LOGO_PATH.'/'.$Delete_data->company_logo));
-        }
+        Helpers::delete_firebase_img($Delete_data->company_logo);
 
         $Delete_data->delete();
 
@@ -211,9 +198,7 @@ class ExperienceController extends Controller
         if (isset($Delete_data)) {
             $exp_doc = ExperienceDocumentModel::where('experience_id',$experience_id)->get();
             foreach ($exp_doc as $experience){
-                if(file_exists(public_path(COMPANY_DOCUMENT_PATH.'/'.$experience['file_name']))){
-                    unlink(public_path(COMPANY_DOCUMENT_PATH.'/'.$experience['file_name']));
-                }
+                Helpers::delete_firebase_img($experience['file_name']);
             }
             ExperienceDocumentModel::where('experience_id',$experience_id)->delete();
 
@@ -230,9 +215,7 @@ class ExperienceController extends Controller
         Log::info('ExperienceController::delete_exp_document() start');
         $Delete_data = ExperienceDocumentModel::find($document_id);
 
-        if(file_exists(public_path(COMPANY_DOCUMENT_PATH.'/'.$Delete_data->file_name))){
-            unlink(public_path(COMPANY_DOCUMENT_PATH.'/'.$Delete_data->file_name));
-        }
+        Helpers::delete_firebase_img($Delete_data->file_name);
         $Delete_data->delete();
 
         Log::info('ExperienceController::delete_exp_document() isset($Delete_data)');
@@ -264,7 +247,7 @@ class ExperienceController extends Controller
                 return Datatables::of($data['result'])
                     ->addIndexColumn()
                     ->addColumn('file_path', function ($row) {
-                        return asset(COMPANY_DOCUMENT_PATH.'/'. $row->file_name);
+                        return Helpers::firebase_img_url($row->file_name);
                     })
                     ->rawColumns(['file_path'])
                     ->make(true);

@@ -13,7 +13,7 @@
                             <div class="col-md-6 mb-3">
                                 <div class="main-img-user profile-user" style="display: inline-block;position: relative;width: 36px;height: 36px;border-radius: 100%;text-align: center;width: 120px;height: 120px;margin-bottom: 20px;">
                                     @if(isset($personal_info['profile_logo']) && !empty($personal_info['profile_logo']))
-                                        <img alt="" id="profile_img" src="{{asset(UPLOAD_PATH).'/'.$personal_info['profile_logo'] }}" class="image-picker-preview">
+                                        <img alt="" id="profile_img" src="{{ $personal_info['profile_logo'] }}" class="image-picker-preview">
                                     @else
                                         <img alt="" id="profile_img" src="https://v2.medibhai.co.in/assets/img/default_profile_logo.png" class="image-picker-preview">
                                     @endif
@@ -94,7 +94,7 @@
                                 <textarea name="about_me" id="about_me" cols="30" rows="5" class="form-control bg-transparent" data-parsley-required="true">{{ @$personal_info['about_me']}}</textarea>
                             </div>
                             <div class="col-md-6 mb-3 mt-2">
-                                <label class="form-label"><strong>Resume</strong><sup class="text-danger red">*</sup>@if(!empty($personal_info['resume'])) <a href="{{asset(UPLOAD_PATH.'/'.$personal_info['resume'])}}" target="_blank"><i class="fa fa-eye"></i></a>@endif</label>
+                                <label class="form-label"><strong>Resume</strong><sup class="text-danger red">*</sup>@if(!empty($personal_info['resume'])) <a href="{{ $personal_info['resume'] }}" target="_blank"><i class="fa fa-eye"></i></a>@endif</label>
                                 <input type="file" id="resume" name="resume" class="mt-3 dropify" data-allowed-file-extensions='["jpg", "png","jpeg","gif","pdf"]' data-height="100">
                             </div>
                             <h4 class="mb-3 mt-2">Links : </h4>

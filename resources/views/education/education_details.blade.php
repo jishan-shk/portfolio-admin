@@ -24,7 +24,7 @@
                                 <label class="form-label"><strong>Institute Logo</strong><sup class="text-danger red">*</sup></label>
                                 <div class="main-img-user profile-user" style="display: inline-block;position: relative;width: 36px;height: 36px;border-radius: 100%;text-align: center;width: 120px;height: 120px;margin-bottom: 20px;">
                                     @if(isset($education_data['logo']) && !empty($education_data['logo']))
-                                        <img alt="" id="institude_img" src="{{asset(EDUCATION_LOGO_PATH).'/'.$education_data['logo'] }}" class="image-picker-preview">
+                                        <img alt="" id="institude_img" src="{{ $education_data['logo'] }}" class="image-picker-preview">
                                     @else
                                         <img alt="" id="institude_img" class="image-picker-preview">
                                     @endif

@@ -20,10 +20,12 @@ class AboutMeController extends Controller
 {
     public function about_me() :View
     {
-        $data = []; 
+        $data = [];
 
         $personal_info = PersonalInfoModel::where('id',1)->first();
         if(!empty($personal_info)){
+            $personal_info['profile_logo'] = Helpers::firebase_img_url($personal_info['profile_logo']);
+            $personal_info['resume'] = Helpers::firebase_img_url($personal_info['resume']);
             $data['personal_info'] = $personal_info;
         }
         return view('about_me.about_me',$data);
@@ -64,16 +66,6 @@ class AboutMeController extends Controller
                 $status_code = 400;
                 $errors_fields = $validator->errors();
             }else{
-                if (!Storage::exists('uploads')) {
-                    // Create the directory
-                    Storage::makeDirectory('uploads');
-                }
-
-                if (!File::exists(public_path(UPLOAD_PATH))) {
-                    // Create the directory
-                    File::makeDirectory(public_path(UPLOAD_PATH), $mode = 0755, true, true);
-                }
-
                 $data = [
                     'position'          =>  implode(',',$post['i_am_a']),
                     'full_name'         =>  $post['full_name'],
@@ -92,15 +84,13 @@ class AboutMeController extends Controller
                 ];
 
                 if ($request->hasFile('profile_logo')) {
-                    $image_name =  strtolower($post['full_name']).'_'. time() . '.' . $request->profile_logo->extension();
-                    $request->profile_logo->move(public_path(UPLOAD_PATH), $image_name);
-                    $data['profile_logo'] = $image_name;
+                    $image = $request->file('profile_logo');
+                    $data['profile_logo'] = Helpers::save_img_firebase('Logo',$image,$post['full_name']);
                 }
 
                 if ($request->hasFile('resume')) {
-                    $image_name =  'resume_'. time() . '.' . $request->resume->extension();
-                    $request->resume->move(public_path(UPLOAD_PATH), $image_name);
-                    $data['resume'] = $image_name;
+                    $image = $request->file('resume');
+                    $data['resume'] = Helpers::save_img_firebase('Logo',$image,'resume_');
                 }
 
                 $info_id = PersonalInfoModel::updateOrCreate(

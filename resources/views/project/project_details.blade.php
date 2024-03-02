@@ -16,7 +16,7 @@
                                 <label class="form-label"><strong>Project Image</strong><sup class="text-danger red">*</sup></label>
                                 <div class="main-img-user profile-user" style="display: inline-block;position: relative;width: 36px;height: 36px;border-radius: 100%;text-align: center;width: 120px;height: 120px;margin-bottom: 20px;">
                                     @if(isset($project_info['image']) && !empty($project_info['image']))
-                                        <img alt="" id="web_image" src="{{asset(PROJECTS_PATH).'/'.$project_info['image'] }}" class="image-picker-preview">
+                                        <img alt="" id="web_image" src="{{ $project_info['image'] }}" class="image-picker-preview">
                                     @else
                                         <img alt="" id="web_image" src="" class="image-picker-preview">
                                     @endif

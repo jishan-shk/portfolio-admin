@@ -27,7 +27,9 @@ class EducationController extends Controller
     {
         $data = [];
         if(!empty($education_id)) {
-            $data['education_data'] = EducationModel::find($education_id);
+            $education_data = EducationModel::find($education_id);
+            $education_data->logo = Helpers::firebase_img_url($education_data->logo);
+            $data['education_data'] = $education_data;
         }
         return view('education.education_details',$data);
     }
@@ -50,7 +52,12 @@ class EducationController extends Controller
                 return DataTables::of($data['result'])
                     ->addIndexColumn()
                     ->addColumn('logo', function ($row) {
-                        return !empty($row->logo) ? '<img src="'.(asset(EDUCATION_LOGO_PATH).'/'.$row->logo).'" width="70">' : '';
+                        $logo = '';
+                        if(!empty($row->logo)){
+                            $path = Helpers::firebase_img_url($row->logo);
+                            $logo = '<img src="'.($path).'" width="70">';
+                        }
+                        return $logo;
                     })
                     ->addColumn('started', function ($row) {
                         return !empty($row->started) ? date('M Y',strtotime($row->started)): '';
@@ -60,8 +67,8 @@ class EducationController extends Controller
                     })
                     ->addColumn('action', function ($row) {
                         return '<div class="d-flex">
-                                        <a href="'.route('education_details',[$row->id]).'" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
-                                        <a href="javascript:void(0)" class="btn btn-danger shadow btn-xs sharp delete_education" data-education-delete="'.route('delete_education',[$row->id]).'"><i class="fa fa-trash"></i></a>
+                                        <a href="/education-details/'.$row->id.'" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                        <a href="javascript:void(0)" class="btn btn-danger shadow btn-xs sharp delete_education" data-education-delete="/delete-education/'.$row->id.'"><i class="fa fa-trash"></i></a>
                                     </div>';
                     })
                     ->rawColumns(['logo','started','action','created_by'])
@@ -107,15 +114,6 @@ class EducationController extends Controller
                 $status_code = 400;
                 $errors_fields = $validator->errors();
             } else {
-                if (!Storage::exists('uploads')) {
-                    // Create the directory
-                    Storage::makeDirectory('uploads');
-                }
-
-                if (!File::exists(public_path(EDUCATION_LOGO_PATH))) {
-                    File::makeDirectory(public_path(EDUCATION_LOGO_PATH), $mode = 0755, true, true);
-                }
-
                 $user_id = Auth::id();
 
                 $endMonth = date('M Y',strtotime($post['ended'])) ?? '';
@@ -136,9 +134,8 @@ class EducationController extends Controller
 
                 if ($request->hasFile('logo')) {
                     $original_name = $request->logo->getClientOriginalName();
-                    $image_name =  $original_name.'_'. time() . '.' . $request->logo->extension();
-                    $request->logo->move(public_path(EDUCATION_LOGO_PATH), $image_name);
-                    $data['logo'] = $image_name;
+                    $image = $request->file('logo');
+                    $data['logo'] = Helpers::save_img_firebase('Logo',$image,$original_name);
                 }
 
                 $message = "Education Saved Successfully";
@@ -176,11 +173,10 @@ class EducationController extends Controller
         try {
             $education = EducationModel::find($id);
             if ($education) {
-                if (file_exists(public_path(EDUCATION_LOGO_PATH.'/'.$education->logo))) {
-                    unlink(public_path(EDUCATION_LOGO_PATH.'/'.$education->logo));
-                }
 
+                Helpers::delete_firebase_img($education->logo);
                 $education->delete();
+
                 return response()->json(['success' => true, 'message' => 'Deleted successfully']);
             } else {
                 return response()->json(['success' => false, 'message' => 'Education not found']);

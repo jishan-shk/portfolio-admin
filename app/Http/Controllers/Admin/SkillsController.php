@@ -198,7 +198,7 @@ class SkillsController extends Controller
                     ->addColumn('action', function ($row) {
                         return '<div class="d-flex">
                                         <a href="javascript:void(0)" class="btn btn-primary shadow btn-xs sharp me-1 edit_skill" data-skill-id="'.$row->skill_id.'"><i class="fas fa-pencil-alt"></i></a>
-                                        <a href="'.route('delete_skill',[$row->skill_id]).'" class="btn btn-danger shadow btn-xs sharp delete_skill" data-skill-id="'.$row->skill_id.'"><i class="fa fa-trash"></i></a>
+                                        <a href="/skills/delete-skill/'.$row->skill_id.'" class="btn btn-danger shadow btn-xs sharp delete_skill" data-skill-id="'.$row->skill_id.'"><i class="fa fa-trash"></i></a>
                                     </div>';
                     })
                     ->rawColumns(['logo','created_at','action','created_by'])
@@ -252,7 +252,7 @@ class SkillsController extends Controller
 
                 if ($request->hasFile('logo')) {
                     $image = $request->file('logo');
-                    $data['logo'] = Helpers::save_img_firebase($image,$post['skill_name']);
+                    $data['logo'] = Helpers::save_img_firebase('Logo',$image,$post['skill_name']);
                 }
 
                 $message = "Skills Saved Sucessfully";
@@ -297,6 +297,7 @@ class SkillsController extends Controller
 
         try {
             $data = SkillsMasterModel::where('id',$skill_id)->get()->first();
+            $data['logo'] = Helpers::firebase_img_url($data['logo']);
 
             $success = true;
             $status_code = 200;
@@ -319,10 +320,8 @@ class SkillsController extends Controller
     public function delete_skill($skill_id): JsonResponse
     {
         $Delete_data = SkillsMasterModel::find($skill_id);
-        if(file_exists(public_path(SKILL_LOGO_PATH).'/'.$Delete_data->logo)){
-            unlink(public_path(SKILL_LOGO_PATH).'/'.$Delete_data->logo);
-        }
 
+        Helpers::delete_firebase_img($Delete_data->logo);
         $Delete_data->delete();
 
         Log::info('SkillsController::delete_skill() isset($Delete_data)');

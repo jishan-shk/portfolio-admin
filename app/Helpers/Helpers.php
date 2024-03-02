@@ -27,14 +27,14 @@ class Helpers
         return $signedUrl;
     }
 
-    public static function save_img_firebase($file,$file_name)
+    public static function save_img_firebase($path,$file,$file_name)
     {
         ini_set('max_execution_time', 0);
 
         $storage = app('firebase.storage');
         $defaultBucket = $storage->getBucket();
 
-        $imagePathInBucket = 'Logo/' .strtolower($file_name).'_'. uniqid() . '.' . $file->getClientOriginalExtension();
+        $imagePathInBucket = $path.'/' .strtolower($file_name).'_'. uniqid() . '.' . $file->getClientOriginalExtension();
 
         $defaultBucket->upload(
             $file->get(),
@@ -45,4 +45,16 @@ class Helpers
 
         return $imagePathInBucket;
     }
+
+    public static function delete_firebase_img($imgPath)
+    {
+        $storage = app('firebase.storage');
+        $defaultBucket = $storage->getBucket();
+
+        $object = $defaultBucket->object($imgPath);
+        $object->delete();
+
+        return true;
+    }
+
 }

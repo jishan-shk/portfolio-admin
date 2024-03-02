@@ -174,7 +174,9 @@ class ProjectsController extends Controller
         $data['Skills'] = SkillsMasterModel::pluck('name','name');
 
         if(!empty($project_id)){
-            $data['project_info'] = ProjectsModel::where('id',$project_id)->first();
+            $project_info = ProjectsModel::where('id',$project_id)->first();
+            $project_info['image'] = Helpers::firebase_img_url($project_info['image']);
+            $data['project_info'] = $project_info;
         }
 
         return view('project.project_details',$data);
@@ -201,7 +203,8 @@ class ProjectsController extends Controller
                 return DataTables::of($data['result'])
                     ->addIndexColumn()
                     ->addColumn('image', function ($row) {
-                        return '<img src="'.(asset(PROJECTS_PATH).'/'.$row->image).'" width="70">';
+                        $image = Helpers::firebase_img_url($row->image);
+                        return '<img src="'.$image.'" width="70">';
                     })
                     ->addColumn('language_used', function ($row) {
                         $lanuage = explode(',',$row->language_used);
@@ -279,16 +282,6 @@ class ProjectsController extends Controller
                 $status_code = 400;
                 $errors_fields = $validator->errors();
             }else{
-                if (!Storage::exists('uploads')) {
-                    // Create the directory
-                    Storage::makeDirectory('uploads');
-                }
-
-                if (!File::exists(public_path(PROJECTS_PATH))) {
-                    // Create the directory
-                    File::makeDirectory(public_path(PROJECTS_PATH), $mode = 0755, true, true);
-                }
-
                 $data = [
                     'project_category_id'   => $post['project_category'],
                     'title'                 => $post['title'],
@@ -301,9 +294,8 @@ class ProjectsController extends Controller
                 ];
 
                 if ($request->hasFile('image')) {
-                    $image_name =  strtolower($post['title']).'_'. time() . '.' . $request->image->extension();
-                    $request->image->move(public_path(PROJECTS_PATH), $image_name);
-                    $data['image'] = $image_name;
+                    $image = $request->file('image');
+                    $data['image'] = Helpers::save_img_firebase('Logo',$image,$post['title']);
                 }
 
                 $message = "Project Saved Sucessfully";
@@ -340,10 +332,7 @@ class ProjectsController extends Controller
     public function delete_project($skill_id): JsonResponse
     {
         $Delete_data = ProjectsModel::find($skill_id);
-        if(file_exists(public_path(PROJECTS_PATH).'/'.$Delete_data->image)){
-            unlink(public_path(PROJECTS_PATH).'/'.$Delete_data->image);
-        }
-
+        Helpers::delete_firebase_img($Delete_data->image);
         $Delete_data->delete();
 
         Log::info('ProjectsController::delete_project() isset($Delete_data)');
