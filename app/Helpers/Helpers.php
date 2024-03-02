@@ -36,12 +36,8 @@ class Helpers
 
         $imagePathInBucket = 'Logo/' .strtolower($file_name).'_'. uniqid() . '.' . $file->getClientOriginalExtension();
 
-        $file->storeAs('temp', $imagePathInBucket);
-
-        $localImagePath = storage_path('app/temp/' . $imagePathInBucket);
-
         $defaultBucket->upload(
-            fopen($localImagePath, 'r'),
+            $file->get(),
             [
                 'name' => $imagePathInBucket
             ]
