@@ -50,7 +50,7 @@ return [
              *
              */
 
-            'credentials' => env('FIREBASE_CREDENTIALS', env('GOOGLE_APPLICATION_CREDENTIALS')),
+            'credentials' => public_path('assets/firebase-cred.json'),
 
             /*
              * ------------------------------------------------------------------------
@@ -102,7 +102,7 @@ return [
                  * https://my-project-id.firebaseio.com
                  */
 
-                'url' => env('FIREBASE_DATABASE_URL'),
+                'url' => 'gs://laravel-demo-ca122.appspot.com',
 
                 /*
                  * As a best practice, a service should have access to only the resources it needs.
