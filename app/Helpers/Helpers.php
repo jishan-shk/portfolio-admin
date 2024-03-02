@@ -16,4 +16,37 @@ class Helpers
             "file" => $file,
         ]);
     }
+
+    public static function firebase_img_url($imgPath)
+    {
+        $storage = app('firebase.storage');
+        $defaultBucket = $storage->getBucket();
+
+        $expiryTimestamp = strtotime('+1 week');
+        $signedUrl = $defaultBucket->object($imgPath)->signedUrl($expiryTimestamp);
+        return $signedUrl;
+    }
+
+    public static function save_img_firebase($file,$file_name)
+    {
+        ini_set('max_execution_time', 0);
+
+        $storage = app('firebase.storage');
+        $defaultBucket = $storage->getBucket();
+
+        $imagePathInBucket = 'Logo/' .strtolower($file_name).'_'. uniqid() . '.' . $file->getClientOriginalExtension();
+
+        $file->storeAs('temp', $imagePathInBucket);
+
+        $localImagePath = storage_path('app/temp/' . $imagePathInBucket);
+
+        $defaultBucket->upload(
+            fopen($localImagePath, 'r'),
+            [
+                'name' => $imagePathInBucket
+            ]
+        );
+
+        return $imagePathInBucket;
+    }
 }

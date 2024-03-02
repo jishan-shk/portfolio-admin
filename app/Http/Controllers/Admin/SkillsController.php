@@ -189,7 +189,8 @@ class SkillsController extends Controller
                 return DataTables::of($data['result'])
                     ->addIndexColumn()
                     ->addColumn('logo', function ($row) {
-                        return '<img src="'.(asset(SKILL_LOGO_PATH).'/'.$row->logo).'" width="70">';
+                        $logo = Helpers::firebase_img_url($row->logo);
+                        return '<img src="'.($logo).'" width="70" alt="">';
                     })
                     ->addColumn('created_at', function ($row) {
                         return date('d M, Y h:i A', strtotime($row->created_at));
@@ -244,25 +245,14 @@ class SkillsController extends Controller
                 $status_code = 400;
                 $errors_fields = $validator->errors();
             }else{
-//                if (!Storage::exists('uploads')) {
-//                    // Create the directory
-//                    Storage::makeDirectory('uploads');
-//                }
-
-                if (!File::exists(public_path(SKILL_LOGO_PATH))) {
-                    // Create the directory
-                    File::makeDirectory(public_path(SKILL_LOGO_PATH), $mode = 0755, true, true);
-                }
-
                 $data = [
                     'skills_category_id'    => $post['skill_category'],
                     'name'                  => $post['skill_name'],
                 ];
 
                 if ($request->hasFile('logo')) {
-                    $image_name =  strtolower($post['skill_name']).'_'. time() . '.' . $request->logo->extension();
-                    $request->logo->move(public_path(SKILL_LOGO_PATH), $image_name);
-                    $data['logo'] = $image_name;
+                    $image = $request->file('logo');
+                    $data['logo'] = Helpers::save_img_firebase($image,$post['skill_name']);
                 }
 
                 $message = "Skills Saved Sucessfully";

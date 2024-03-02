@@ -75,7 +75,7 @@ $(function (){
                     $('#skill_category').val(res.data.skills_category_id).trigger('change');
                     $('#skill_name').val(res.data.name);
 
-                    var imageUrl = path + '/' + res.data.logo;
+                    var imageUrl = res.data.logo;
 
                     append_logo_file()
 
