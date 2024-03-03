@@ -252,7 +252,7 @@ class SkillsController extends Controller
 
                 if ($request->hasFile('logo')) {
                     $image = $request->file('logo');
-                    $data['logo'] = Helpers::save_img_firebase('Logo',$image,$post['skill_name']);
+                    $data['logo'] = Helpers::save_img_firebase('Skills',$image,$post['skill_name']);
                 }
 
                 $message = "Skills Saved Sucessfully";

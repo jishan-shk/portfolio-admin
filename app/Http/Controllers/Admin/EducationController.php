@@ -135,7 +135,7 @@ class EducationController extends Controller
                 if ($request->hasFile('logo')) {
                     $original_name = $request->logo->getClientOriginalName();
                     $image = $request->file('logo');
-                    $data['logo'] = Helpers::save_img_firebase('Logo',$image,$original_name);
+                    $data['logo'] = Helpers::save_img_firebase('Education',$image,$original_name);
                 }
 
                 $message = "Education Saved Successfully";

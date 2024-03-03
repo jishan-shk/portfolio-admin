@@ -102,7 +102,7 @@ return [
                  * https://my-project-id.firebaseio.com
                  */
 
-                'url' => 'gs://laravel-demo-ca122.appspot.com',
+                'url' => 'gs://porfolio-admin-jishan.appspot.com',
 
                 /*
                  * As a best practice, a service should have access to only the resources it needs.

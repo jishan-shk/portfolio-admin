@@ -142,7 +142,7 @@ class ExperienceController extends Controller
 
                 if ($request->hasFile('company_logo')) {
                     $image = $request->file('company_logo');
-                    $data['company_logo'] = Helpers::save_img_firebase('Logo',$image,$post['company_name']);
+                    $data['company_logo'] = Helpers::save_img_firebase('Company',$image,$post['company_name']);
                 }
 
                 $message = "Experience Saved Sucessfully";
@@ -160,7 +160,7 @@ class ExperienceController extends Controller
                     if ($request->hasFile('document')) {
                         foreach ($request->file('document') as $document){
                             $original_name = $document->getClientOriginalName();
-                            $document_name = Helpers::save_img_firebase('Logo',$document,$original_name);
+                            $document_name = Helpers::save_img_firebase('Document',$document,$original_name);
 
                             ExperienceDocumentModel::create(['experience_id' => $experience->id ,'file_name' => $document_name,'created_by' => $user_id]);
                         }

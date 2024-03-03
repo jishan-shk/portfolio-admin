@@ -90,7 +90,7 @@ class AboutMeController extends Controller
 
                 if ($request->hasFile('resume')) {
                     $image = $request->file('resume');
-                    $data['resume'] = Helpers::save_img_firebase('Logo',$image,'resume_');
+                    $data['resume'] = Helpers::save_img_firebase('Resume',$image,'resume_');
                 }
 
                 $info_id = PersonalInfoModel::updateOrCreate(

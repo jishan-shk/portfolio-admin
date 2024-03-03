@@ -295,7 +295,7 @@ class ProjectsController extends Controller
 
                 if ($request->hasFile('image')) {
                     $image = $request->file('image');
-                    $data['image'] = Helpers::save_img_firebase('Logo',$image,$post['title']);
+                    $data['image'] = Helpers::save_img_firebase('Project',$image,$post['title']);
                 }
 
                 $message = "Project Saved Sucessfully";

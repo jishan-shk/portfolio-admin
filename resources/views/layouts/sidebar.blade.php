@@ -74,8 +74,8 @@
             </li>
         </ul>
         <div class="copyright">
-            <p><strong>Dompet Payment Admin Dashboard</strong> © 2022 All Rights Reserved</p>
-            <p class="fs-12">Made with <span class="heart"></span> by DexignLab</p>
+            <p><strong>Portfolio Admin Dashboard</strong> © {{ date('Y') }} All Rights Reserved</p>
+            <p class="fs-12">Made with <span class="heart"></span> by Jishan Shaikh</p>
         </div>
     </div>
 </div>
