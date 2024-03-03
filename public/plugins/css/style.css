@@ -8879,7 +8879,8 @@ label {
 
 @media only screen and (max-width: 767px) {
   [data-sidebar-style="overlay"] .nav-header .logo-abbr {
-    display: block; } }
+    display: block;
+  } }
 
 [data-header-position="fixed"] .nav-header {
   position: fixed;
@@ -8941,11 +8942,12 @@ label {
         padding-right: 0;
         justify-content: center; } }
   .nav-header .brand-title {
-    margin-left: 15px;
-    margin-top: 15px;
-    max-width: 140px;
-    font-size: 38px;
-    color: #000; }
+    /*margin-left: 15px;*/
+    /*margin-top: 15px;*/
+    /*max-width: 140px;*/
+    /*font-size: 38px;*/
+    /*color: #000;*/
+  }
     [data-theme-version="dark"] .nav-header .brand-title {
       background-position: 0 120%; }
   @media only screen and (max-width: 767px) {
@@ -8969,7 +8971,12 @@ label {
   .nav-header {
     width: 5rem; }
     .nav-header .brand-title {
-      display: none; } }
+      display: none;
+    }
+    .nav-header .logo-icon {
+      display: block;
+    }
+}
 
 .nav-control {
   cursor: pointer;
@@ -9059,6 +9066,9 @@ label {
 [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .brand-title {
   display: none; }
 
+[data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .logo-icon {
+  display: block; }
+
 [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .nav-header .logo-abbr {
   display: block; }
 
@@ -9070,6 +9080,9 @@ label {
 
 [data-sidebar-style="compact"][data-layout="vertical"] .nav-header .brand-title {
   display: none; }
+
+[data-sidebar-style="compact"][data-layout="vertical"] .nav-header .logo-icon {
+  display: block; }
 
 [data-sidebar-style="compact"][data-layout="vertical"] .nav-header .logo-compact {
   max-width: 75px; }
@@ -9083,6 +9096,8 @@ label {
   width: 10.625rem; }
   [data-sidebar-style="modern"][data-layout="vertical"] .nav-header .brand-title {
     display: none; }
+[data-sidebar-style="modern"][data-layout="vertical"] .nav-header .logo-icon {
+    display: block; }
   [data-sidebar-style="modern"][data-layout="vertical"] .nav-header .logo-compact {
     display: none; }
 
@@ -12108,6 +12123,8 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
 @media (max-width: 767px) {
   .brand-title {
     display: none; }
+    .logo-icon {
+    display: block; }
   .footer {
     padding-left: 0; }
   .dlabnav {
@@ -12560,6 +12577,9 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
           background-color: #6e6e6e !important; }
     [data-sidebar-style="mini"] .nav-header .brand-title {
       display: none; }
+
+    [data-sidebar-style="mini"] .nav-header .logo-icon {
+      display: block; }
     [data-sidebar-style="mini"] .nav-header .hamburger {
       display: none; }
   [data-sidebar-style="mini"] .header .header-content {
@@ -13193,6 +13213,8 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
         display: block; }
       [data-sidebar-style="icon-hover"][data-layout="vertical"] .nav-header .brand-logo .brand-title {
         display: none; }
+    [data-sidebar-style="icon-hover"][data-layout="vertical"] .nav-header .logo-icon {
+        display: block; }
     [data-sidebar-style="icon-hover"][data-layout="vertical"] .nav-header .nav-control {
       display: none; }
   [data-sidebar-style="icon-hover"][data-layout="vertical"] .header {
@@ -13293,7 +13315,10 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     [data-sidebar-style="icon-hover"][data-layout="vertical"] .iconhover-toggle .nav-header .brand-logo {
       padding-left: 1.6rem; }
       [data-sidebar-style="icon-hover"][data-layout="vertical"] .iconhover-toggle .nav-header .brand-logo .brand-title {
-        display: block; } }
+        display: none; }
+    [data-sidebar-style="icon-hover"][data-layout="vertical"] .iconhover-toggle .nav-header .brand-logo .logo-icon {
+        display: block; }
+}
   @media only screen and (min-width: 767px) and (max-width: 1400px) {
     [data-sidebar-style="icon-hover"][data-layout="vertical"] .iconhover-toggle .nav-header {
       width: 17rem; } }

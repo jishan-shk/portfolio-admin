@@ -44,7 +44,7 @@
                         <div class="col-xl-12">
                             <div class="auth-form">
                                 <div class="text-center mb-3">
-                                    <img src="{{ '/plugins/images/logo-full.png' }}" alt="">
+                                    <img src="{{ '/assets/portfolio.png' }}" alt="" width="90%" height="170">
                                 </div>
                                 <h4 class="text-center mb-4">Sign in your account</h4>
                                 <form id="login_form" data-parsley-validate="parsley">
