@@ -31,8 +31,8 @@ class PortfolioApiController extends Controller
             $data = PersonalInfoModel::first();
 
             if (!empty($data)) {
-                $data->profile_logo = asset(UPLOAD_PATH).'/'.$data->profile_logo;
-                $data->resume = asset(UPLOAD_PATH).'/'.$data->resume;
+                $data->profile_logo = Helpers::firebase_img_url($data->profile_logo);
+                $data->resume = Helpers::firebase_img_url($data->resume);
 
                 $success = true;
                 $response_message = '';
@@ -74,7 +74,7 @@ class PortfolioApiController extends Controller
 
                     $data[$skill['skill_category']][] = [
                         'skill' =>  $skill['skill'],
-                        'logo' =>  asset(SKILL_LOGO_PATH).'/'.$skill['logo']
+                        'logo' =>  Helpers::firebase_img_url($skill['logo'])
                     ];
                 }
                 $success = true;
@@ -116,14 +116,22 @@ class PortfolioApiController extends Controller
                     }
 
                     $experienceData[$experience['company_name']] = [
-                        'company_logo'  =>  asset(COMPANY_LOGO_PATH).'/'.$experience['company_logo'],
+                        'company_logo'  =>  Helpers::firebase_img_url($experience['company_logo']),
                         'company_name'  =>  $experience['company_name'],
                         'role'          =>  $experience['role'],
                         'started'       =>  $experience['start'],
                         'ended'         =>  $experience['end'],
                         'description'   =>  $experience['description'],
                         'skills'        =>  $experience['skills'],
-                        'documents'     => ExperienceDocumentModel::select([DB::raw("CONCAT('$document_path', file_name) as document_name")])->where('experience_id',$experience['id'])->get()->toArray()
+                        'documents'     => ExperienceDocumentModel::select(['file_name as document_name'])
+                                                ->where('experience_id', $experience['id'])
+                                                ->get()
+                                                ->map(function ($doc) {
+                                                    return [
+                                                        'document_name' => Helpers::firebase_img_url($doc->document_name),
+                                                    ];
+                                                })
+                                                ->toArray()
                     ];
                 }
 
@@ -186,7 +194,12 @@ class PortfolioApiController extends Controller
         $data = [];
 
         try {
-            $data = EducationModel::select([DB::raw("CONCAT('" . asset(EDUCATION_LOGO_PATH) . "/', logo) AS logo"),'institute_name','degree','started','ended','grade','description'])->get();
+            $data = EducationModel::select(['logo','institute_name','degree','started','ended','grade','description'])
+                ->get()
+                ->map(function ($doc) {
+                    $doc->logo = Helpers::firebase_img_url($doc->logo);
+                    return $doc;
+                });
 
             if ($data->isNotEmpty()) {
                 $success = true;
@@ -219,7 +232,12 @@ class PortfolioApiController extends Controller
         try {
 
             $data['project'] = ProjectsModel::join('project_category','project_category.id','projects.project_category_id')
-                ->select(['project_category.category',DB::raw("CONCAT('" . asset(PROJECTS_PATH) . "/', image) AS image"),'title','language_used','started','ended','description','github','webapp'])->get();
+                ->select(['project_category.category','image','title','language_used','started','ended','description','github','webapp'])
+                ->get()
+                ->map(function ($doc) {
+                    $doc->image = Helpers::firebase_img_url($doc->image);
+                    return $doc;
+                });
 
             if ($data['project']->isNotEmpty()) {
 
