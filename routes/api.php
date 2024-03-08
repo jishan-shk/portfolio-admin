@@ -25,3 +25,5 @@ Route::get('experience',[PortfolioApiController::class,'experience'])->name('exp
 Route::get('social-links',[PortfolioApiController::class,'social_links'])->name('social_links');
 Route::get('education',[PortfolioApiController::class,'education'])->name('education');
 Route::get('projects',[PortfolioApiController::class,'projects'])->name('projects');
+Route::get('check-lead',[PortfolioApiController::class,'check_lead'])->name('check_lead');
+Route::post('save-lead-contact',[PortfolioApiController::class,'save_lead_contact'])->name('save_lead_contact');

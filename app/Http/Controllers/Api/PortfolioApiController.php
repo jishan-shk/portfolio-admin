@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\EducationModel;
 use App\Models\ExperienceDocumentModel;
 use App\Models\ExperienceModel;
+use App\Models\LeadContactModel;
 use App\Models\PersonalInfoModel;
 use App\Models\ProjectCategoryModel;
 use App\Models\ProjectsModel;
@@ -17,6 +18,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Validator;
 
 class PortfolioApiController extends Controller
 {
@@ -267,6 +269,102 @@ class PortfolioApiController extends Controller
             'success'       => $success,
             'data'          => $data,
             'message'       => $response_message,
+        ], $status_code);
+    }
+
+    public function check_lead(Request $request) : JsonResponse
+    {
+        $success = false;
+        $status_code = 200;
+        $response_message = 'Something went wrong!Please try again later.';
+        $post = $request->all();
+
+        try {
+            $rules = [
+                'email'       => 'required',
+            ];
+
+            $messages = [
+                'email.required' => 'Email Id is required',
+            ];
+
+            $validator = Validator::make($request->all(), $rules, $messages);
+
+            if($validator->fails()){
+                $response_message = "Validation Error";
+                $status_code = 400;
+                $errors_fields = $validator->errors();
+            }else{
+                $success = LeadContactModel::where('email',$post['email'])->where('email_send',STATUS_ACTIVE)->exists();
+                $response_message = $success ? 'Email already sent! Please wait, I will connect with you soon.' : 'No Email Found';
+            }
+        }catch (\Exception $e){
+            Helpers::save_error_log($e->getMessage(),$e->getLine(), $e->getFile(),true);
+
+            Log::critical('PortfolioApiController::save_lead_contact() Error');
+            Log::critical($e);
+        }
+
+        return Response::json([
+            'success'       => $success,
+            'message'       => $response_message,
+        ], $status_code);
+    }
+
+    public function save_lead_contact(Request $request) : JsonResponse
+    {
+        $success = false;
+        $status_code = 200;
+        $response_message = 'Something went wrong!Please try again later.';
+        $errors_fields = [];
+        $post = $request->all();
+
+        try {
+            $rules = [
+                'email'       => 'required',
+                'name'        => 'required',
+                'subject'     => 'required',
+                'message'     => 'required',
+                'email_send'  => 'required'
+            ];
+
+            $messages = [
+                'email.required' => 'Email Id is required',
+            ];
+
+            $validator = Validator::make($request->all(), $rules, $messages);
+
+            if($validator->fails()){
+                $response_message = "Validation Error";
+                $status_code = 400;
+                $errors_fields = $validator->errors();
+            }else{
+                $fields = [
+                    'email'       => $post['email'],
+                    'name'        => $post['name'],
+                    'subject'     => $post['subject'],
+                    'message'     => $post['message'],
+                    'email_send'  => $post['email_send']
+                ];
+
+                $id = LeadContactModel::create($fields)->id;
+                if($id){
+                    $success = true;
+                    $response_message = 'Successfully Saved Data';
+                }
+
+            }
+        }catch (\Exception $e){
+            Helpers::save_error_log($e->getMessage(),$e->getLine(), $e->getFile(),true);
+
+            Log::critical('PortfolioApiController::save_lead_contact() Error');
+            Log::critical($e);
+        }
+
+        return Response::json([
+            'success'       => $success,
+            'message'       => $response_message,
+            'error_fields'  => $errors_fields
         ], $status_code);
     }
 }
