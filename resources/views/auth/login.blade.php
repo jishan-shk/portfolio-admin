@@ -107,7 +107,7 @@
                         button.attr('disabled', true).text('Please wait...')
                     },
                     complete: function() {
-                        button.attr('disabled', false).text('Login');
+                        button.attr('disabled', false).text('Sign Me In');
                     },
                     success: function(response) {
 

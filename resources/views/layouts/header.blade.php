@@ -536,7 +536,7 @@
                         Dashboard
                     </div>
                 </div>
-                <ul class="navbar-nav header-right">
+                {{-- <ul class="navbar-nav header-right">
                     <li class="nav-item">
                         <div class="input-group search-area">
                             <input type="text" class="form-control" placeholder="Search here...">
@@ -696,7 +696,7 @@
                     <li class="nav-item">
                         <a href="javascript:void(0);" class="btn btn-primary d-sm-inline-block d-none">Generate Report<i class="las la-signal ms-3 scale5"></i></a>
                     </li>
-                </ul>
+                </ul> --}}
             </div>
         </nav>
     </div>

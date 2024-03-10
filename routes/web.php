@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutMeController;
+use App\Http\Controllers\Admin\CommonController;
 use App\Http\Controllers\Admin\EducationController;
 use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\ProjectsController;
@@ -29,6 +30,8 @@ Route::middleware('AuthMiddleware')->group(function() {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/dashboard-details',[CommonController::class,'dashboard_api'])->name('dashboard_api');
 
     Route::get('about-me',[AboutMeController::class,'about_me'])->name('about_me');
     Route::post('save-personal-details',[AboutMeController::class,'save_personal_details'])->name('save_personal_details');
